@@ -6,7 +6,7 @@ export const fetchData = async () => {
   //try will be executed if the fetch is succesful
   try {
     const {
-      data: { confirmed, recovered, deaths, lastupdate },
+      data: { confirmed, recovered, deaths, lastUpdate },
     } = await axios.get(url);
 
     // const modifiedData = {
@@ -20,6 +20,13 @@ export const fetchData = async () => {
 
     // return modifiedData;
 
-    return { confirmed, recovered, deaths, lastupdate };
+    return { confirmed, recovered, deaths, lastUpdate };
+  } catch (error) {}
+};
+
+export const fetchDailyData = async () => {
+  try {
+    const { data } = await axios.get(`${url}/daily`);
+    console.log(data);
   } catch (error) {}
 };
