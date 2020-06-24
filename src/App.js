@@ -7,6 +7,7 @@ import { fetchData } from "./api"; //when we have just index file we don't speci
 class App extends React.Component {
   state = {
     data: {},
+    country: "",
   };
 
   async componentDidMount() {
@@ -14,13 +15,19 @@ class App extends React.Component {
 
     this.setState({ data: fetchedData }); // we populate the data in the state
   }
+
+  handleCountryChange = async (country) => {
+    // fetch the data
+    // set the state
+  };
+
   render() {
     const { data } = this.state;
     return (
       <div className={styles.container}>
         <Cards data={data} />
         <Chart />
-        <CountryPicker />
+        <CountryPicker handleCountryChange={this.handleCountryChange} />
       </div>
     );
   }
